@@ -8,6 +8,7 @@ const contactSchema = new Schema({
     },
     email: {
         type: String,
+        match: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
     },
     phone: {
         type: String,
@@ -16,6 +17,10 @@ const contactSchema = new Schema({
         type: Boolean,
         default: false,
     },
+    owner: {
+        type: Schema.Types.ObjectId,
+        ref: 'user',
+    }
 }, { versionKey: false })
 
 contactSchema.post("save", handleSaveError);
