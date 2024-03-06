@@ -9,3 +9,7 @@ export const signupSchema = Joi.object({
 export const subscriptionChangeSchema = Joi.object({
     subscription: Joi.string().valid('starter', 'pro', 'business').required()
 })
+
+export const verifySchema = Joi.object({
+    email: Joi.string().pattern(emailRegexp).required(),
+})
