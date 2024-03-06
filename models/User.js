@@ -26,6 +26,15 @@ const userSchema = new Schema({
         type: String,
         default: null,
     },
+    verify: {
+        type: Boolean,
+        default: false,
+        required: [true, 'Verify token is required'],
+    },
+    verificationToken: {
+        type: String,
+
+    },
 }, { versionKey: false })
 
 userSchema.post("save", handleSaveError);
